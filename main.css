@@ -84,3 +84,8 @@ body {
     font-size: 18px;
     opacity: 0.65;
     }
+    .form__group{
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
