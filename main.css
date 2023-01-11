@@ -9,6 +9,10 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    position: sticky;
+    top: 0;
+    background-color: #FFF;
+    z-index: 1;
   }
   
   .header__logo {height: 30px;}
@@ -39,10 +43,8 @@ body {
   .about__sun-image{
   width: 100px;
   height: 100px;
-  animation-name: rotation;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  animation: rotation 10s infinite linear;
+  position: absolute;
  }
   .about{ display:flex;
     justify-content: space-around;
