@@ -168,7 +168,7 @@ color: #22a030;
 }
 
 .promo__image{
-  background-image: url(/img/promo.jpg);
+  background-image: url(img/promo.jpg);
   display: flex;
   flex: shrink 0;
   width: 100%;
