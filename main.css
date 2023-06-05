@@ -16,6 +16,8 @@ body {
   }
   
   .header__logo {height: 30px;}
+
+  
   
   a {
     text-decoration: none;
@@ -53,7 +55,16 @@ body {
   padding-bottom: 115px;
   background: url(img/back.png) no-repeat;
   background-position: center;
-  background-size: cover;}
+  background-size: cover;
+  position: relative;
+}
+.orb-canvas{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  }
+
   .about h1{
     font-size: 70px;
     line-height: 76px;
