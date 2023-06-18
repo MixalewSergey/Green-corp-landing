@@ -1,4 +1,5 @@
-const INCREASE_NUMBER_ANIMATION_SPEED = 75;
+const INCREASE_NUMBER_ANIMATION_SPEED = 50;
+let animationInited = false;
 
 function increaseNumberAnimationStep(i, element, endNumber){
     if (i <= endNumber){
@@ -17,9 +18,9 @@ function initIncreaseNumberAnimation(){
     const element =document.querySelector(".features__clients-count");
     increaseNumberAnimationStep(0, element, 5000);
 }
-initIncreaseNumberAnimation();
 
-document.querySelector('#budget').addEventListener('change', function handleSelectChange(event) {
+
+    document.querySelector('#budget').addEventListener('change', function handleSelectChange(event) {
     console.log(event);
     if (event.target.value === 'other') {
         const formContainer = document.createElement('div');
@@ -43,4 +44,44 @@ document.querySelector('#budget').addEventListener('change', function handleSele
 
     }
   });
+
+function updateScroll(){
+    if(window.scrollY > 0 ){
+        let header = document.querySelector("header");
+        header.classList.add("header__scrolled");
+    } else {
+        let header = document.querySelector("header");
+        header.classList.remove("header__scrolled");
+    }
+    let windowBottomPosition = window.scrollY + window.innerHeight; 
+    let countElementPosition = document.querySelector('.features__clients-count').offsetTop;
+    console.log(windowBottomPosition)
+    console.log(countElementPosition)
+    if(windowBottomPosition >= countElementPosition && !animationInited )
+    {
+        animationInited = true;
+        initIncreaseNumberAnimation();
+    }
+
+  }
+  window.addEventListener('scroll', updateScroll); 
+  
+  function addSmoothScroll(anchor) {
+    anchor.addEventListener('click', onLinkClick);
+  }
+
+function onLinkClick(event) {
+    event.preventDefault();
+    document.querySelector(event.target.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        addSmoothScroll(anchor);
+      }); 
+      addSmoothScroll(document.querySelector('.more-button'));
+
+
+    
   
